@@ -14,7 +14,8 @@ import {
   Building,
   GraduationCap,
   Lightbulb,
-  Sparkles
+  Sparkles,
+  MessageCircle
 } from 'lucide-react';
 import { SITE_INFO, FAQS } from '../data/content';
 
@@ -22,6 +23,7 @@ export default function ContactPage() {
   const [formRole, setFormRole] = useState('student');
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [lastWaUrl, setLastWaUrl] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -33,6 +35,13 @@ export default function ContactPage() {
     message: ''
   });
 
+  const roleTabs = [
+    { id: 'student', label: 'Join as Student (100% Free)', icon: GraduationCap },
+    { id: 'college', label: 'College / University Partner', icon: Building },
+    { id: 'employer', label: 'Hire Students / Sponsor', icon: User },
+    { id: 'startup', label: 'Submit Startup Idea', icon: Lightbulb },
+  ];
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -40,14 +49,34 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
-  };
 
-  const roleTabs = [
-    { id: 'student', label: 'Join as Student (100% Free)', icon: GraduationCap },
-    { id: 'college', label: 'College / University Partner', icon: Building },
-    { id: 'employer', label: 'Hire Students / Sponsor', icon: User },
-    { id: 'startup', label: 'Submit Startup Idea', icon: Lightbulb },
-  ];
+    const roleObj = roleTabs.find(r => r.id === formRole);
+    const roleTitle = roleObj ? roleObj.label : formRole;
+
+    const messageText = 
+      `*New Application - Struggle of Student Community*\n` +
+      `-----------------------------------------\n` +
+      `*Category:* ${roleTitle}\n` +
+      `*Full Name:* ${formData.name}\n` +
+      `*Phone/WhatsApp:* ${formData.phone}\n` +
+      (formData.email ? `*Email:* ${formData.email}\n` : '') +
+      `*College/Org:* ${formData.college}\n` +
+      (formData.city ? `*City/State:* ${formData.city}\n` : '') +
+      `*Primary Interest:* ${formData.interest}\n` +
+      (formData.message ? `*Notes:* ${formData.message}\n` : '') +
+      `-----------------------------------------\n` +
+      `Source: Official Website Submission`;
+
+    const waLink = `https://wa.me/${SITE_INFO.founder.phoneClean}?text=${encodeURIComponent(messageText)}`;
+    setLastWaUrl(waLink);
+
+    // Automatically trigger WhatsApp in new tab
+    try {
+      window.open(waLink, '_blank');
+    } catch (err) {
+      console.log('Popup blocked or direct navigation', err);
+    }
+  };
 
   return (
     <div className="space-y-24 pb-20">
@@ -174,7 +203,7 @@ export default function ContactPage() {
               Application &amp; Collaboration Form
             </h2>
             <p className="text-sm text-slate-600">
-              Select your category below and submit your details. Our team responds within 24 hours.
+              Select your category below and submit your details. Submitting connects directly with Founder Chanti Nelatalli on WhatsApp.
             </p>
           </div>
 
@@ -211,9 +240,25 @@ export default function ContactPage() {
               </div>
               <h3 className="text-2xl font-black text-slate-900">Thank You for Reaching Out!</h3>
               <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                Your submission for <strong className="text-slate-900 capitalize">{formRole}</strong> has been received by the Struggle of Student core committee. We will contact you at <strong>{formData.phone || '+91 98496 03265'}</strong> soon.
+                Your application details have been formatted and directed to Founder <strong>Chanti Nelatalli (+91 98496 03265)</strong>.
               </p>
-              <div className="pt-2">
+
+              {lastWaUrl && (
+                <div className="pt-2">
+                  <a
+                    href={lastWaUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-all"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Open in WhatsApp Directly</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              )}
+
+              <div className="pt-4">
                 <button
                   type="button"
                   onClick={() => {
@@ -360,7 +405,7 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                 <div className="text-xs text-slate-500 flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Your information is strictly confidential and never shared.</span>
+                  <span>Connects immediately with Founder Chanti Nelatalli via WhatsApp.</span>
                 </div>
 
                 <button

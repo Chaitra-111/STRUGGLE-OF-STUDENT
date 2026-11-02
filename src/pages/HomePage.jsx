@@ -14,10 +14,7 @@ import {
   Layers, 
   ChevronRight,
   HeartHandshake,
-  Users,
-  Building2,
-  TrendingUp,
-  ExternalLink
+  Maximize2
 } from 'lucide-react';
 import { SITE_INFO, CORE_OFFERINGS, VERTICALS, GALLERY_IMAGES } from '../data/content';
 
@@ -137,6 +134,70 @@ export default function HomePage({ setActivePage, onOpenImage }) {
                 <div className="text-xs text-slate-600 mt-0.5">{stat.change}</div>
               </div>
             ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Prime National & State Recognition Feature */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-center">
+          
+          <div 
+            onClick={() => onOpenImage(SITE_INFO.mainDignitaryMoment)}
+            className="lg:col-span-7 relative group cursor-pointer overflow-hidden bg-slate-950 aspect-16/10 lg:aspect-auto lg:h-full min-h-[360px]"
+          >
+            <img 
+              src={SITE_INFO.mainDignitaryMoment.src}
+              alt="Hon'ble Raksha Mantri Shri Rajnath Singh Garu, Hon'ble CM Shri A. Revanth Reddy Garu, and Founder Chanti Nelatalli"
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex flex-col justify-between p-6">
+              <span className="self-start inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600/95 text-white text-xs font-bold shadow-md">
+                <Sparkles className="w-3.5 h-3.5" /> High Honor &amp; Recognition
+              </span>
+
+              <div className="flex items-center justify-between text-white text-xs">
+                <span className="font-semibold text-slate-200">Click to view full high-resolution</span>
+                <span className="p-1.5 rounded-lg bg-white/20 text-white">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 p-8 sm:p-10 space-y-5">
+            <div className="space-y-2">
+              <span className="text-xs font-bold tracking-wider uppercase text-red-600 font-mono">
+                National &amp; State Recognition
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
+                Honored by Hon&apos;ble Raksha Mantri &amp; Hon&apos;ble Chief Minister
+              </h3>
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Founder <strong>Chanti Nelatalli</strong> receiving recognition from Hon&apos;ble Raksha Mantri (Defence Minister of India) <strong>Shri Rajnath Singh Garu</strong> in the esteemed presence of Hon&apos;ble Chief Minister of Telangana <strong>Shri A. Revanth Reddy Garu</strong>.
+            </p>
+
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1.5">
+              <span className="text-xs font-bold text-slate-900 block">
+                Validation of Grassroots Student Impact
+              </span>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                A proud milestone reflecting Struggle of Student&apos;s commitment to provide 100% free career guidance to 10 Crore students by 2047.
+              </p>
+            </div>
+
+            <div className="pt-2 flex items-center gap-4">
+              <button
+                onClick={() => onOpenImage(SITE_INFO.mainDignitaryMoment)}
+                className="inline-flex items-center gap-2 text-xs font-bold text-red-600 hover:text-red-700 transition-colors"
+              >
+                <span>View Full Screen Photo</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
         </div>
@@ -307,7 +368,7 @@ export default function HomePage({ setActivePage, onOpenImage }) {
               Our Community in Pictures
             </h2>
             <p className="text-slate-600 text-base leading-relaxed">
-              From corporate tours at Microsoft to felicitations by Union Ministers and 2,000+ student conclaves.
+              From moments with national leadership to corporate immersions at Microsoft and 2,000+ student conclaves.
             </p>
           </div>
 
@@ -315,7 +376,7 @@ export default function HomePage({ setActivePage, onOpenImage }) {
             onClick={() => setActivePage('about')}
             className="inline-flex items-center gap-2 text-sm font-bold text-red-600 hover:text-red-700 transition-colors self-start md:self-auto"
           >
-            <span>View Full Gallery (12+ Images)</span>
+            <span>View Full Gallery (13 Images)</span>
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>

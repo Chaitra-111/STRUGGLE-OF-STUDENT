@@ -11,7 +11,8 @@ import {
   CheckCircle,
   ExternalLink,
   Phone,
-  Mail
+  Mail,
+  ArrowRight
 } from 'lucide-react';
 import { SITE_INFO, GALLERY_IMAGES } from '../data/content';
 
@@ -75,6 +76,107 @@ export default function AboutPage({ onOpenImage, setActivePage }) {
             <span className="text-xs uppercase font-bold tracking-wider text-red-100 mt-1">Forever Zero Fee</span>
             <span className="text-[11px] text-red-200 mt-2">Zero hidden charges or subscriptions</span>
           </div>
+        </div>
+      </section>
+
+      {/* Moments with Our Dignitaries & Guests (Matching Page 3 of Startup Profile) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="space-y-2">
+          <span className="text-xs font-bold tracking-wider uppercase text-red-600 font-mono">
+            State &amp; National Leadership
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Moments with Our Guests &amp; Leaders
+          </h2>
+          <p className="text-slate-600 text-base max-w-3xl leading-relaxed">
+            Struggle of Student has had the privilege of receiving high recognition from national cabinet ministers and state leadership.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Card 1: Rajnath Singh Garu & Revanth Reddy Garu */}
+          <div 
+            onClick={() => onOpenImage(SITE_INFO.mainDignitaryMoment)}
+            className="group rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col"
+          >
+            <div className="relative aspect-16/10 bg-slate-950 overflow-hidden">
+              <img 
+                src={SITE_INFO.mainDignitaryMoment.src}
+                alt={SITE_INFO.mainDignitaryMoment.title}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end justify-between p-5 text-white">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-md">
+                  <Sparkles className="w-3.5 h-3.5" /> High Honor
+                </span>
+                <span className="p-1.5 rounded-lg bg-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </div>
+
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-600">
+                  National &amp; State Honor
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                  Hon&apos;ble Raksha Mantri Shri Rajnath Singh Garu &amp; Hon&apos;ble CM Shri A. Revanth Reddy Garu
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Founder Chanti Nelatalli presenting honors and receiving recognition from Hon&apos;ble Raksha Mantri (Defence Minister of India) Shri Rajnath Singh Garu and Hon&apos;ble Chief Minister of Telangana Shri A. Revanth Reddy Garu for student community development.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-red-600">
+                <span>View Full Resolution</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Union Minister G. Kishan Reddy Garu */}
+          <div 
+            onClick={() => onOpenImage(GALLERY_IMAGES[1])}
+            className="group rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col"
+          >
+            <div className="relative aspect-16/10 bg-slate-950 overflow-hidden">
+              <img 
+                src={GALLERY_IMAGES[1].src}
+                alt={GALLERY_IMAGES[1].title}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end justify-between p-5 text-white">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 text-white text-xs font-bold shadow-md">
+                  <Award className="w-3.5 h-3.5 text-red-400" /> Dignitary Felicitation
+                </span>
+                <span className="p-1.5 rounded-lg bg-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </div>
+
+            <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-red-600">
+                  Union Leadership
+                </span>
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                  Felicitation with Hon&apos;ble Union Minister Shri G. Kishan Reddy Garu
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  SS Founder Chanti Nelatalli being honored by Hon&apos;ble Union Minister Shri G. Kishan Reddy at a major national youth summit celebrating youth empowerment and grassroots leadership.
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-red-600">
+                <span>View Full Resolution</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

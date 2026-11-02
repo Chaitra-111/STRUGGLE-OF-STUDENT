@@ -15,6 +15,12 @@ export const SITE_INFO = {
     email: "contact@struggleofstudent.org",
     location: "Hyderabad, Telangana, India"
   },
+  mainDignitaryMoment: {
+    src: "/images/rajnath-singh-revanth-reddy-founder.jpg",
+    title: "Honored by Raksha Mantri Shri Rajnath Singh Garu & Hon'ble CM Shri A. Revanth Reddy Garu",
+    dignitaries: "Hon'ble Raksha Mantri Shri Rajnath Singh Garu & Hon'ble Telangana Chief Minister Shri A. Revanth Reddy Garu",
+    caption: "Founder Chanti Nelatalli being recognized by Hon'ble Raksha Mantri (Defence Minister of India) Shri Rajnath Singh Garu and Hon'ble Chief Minister of Telangana Shri A. Revanth Reddy Garu for youth empowerment and student community leadership."
+  },
   stats: [
     { label: "Students in Community", value: "2,000+", change: "Growing rapidly across states" },
     { label: "Colleges Connected", value: "20+", change: "Tier 2, Tier 3 & Rural hubs" },
@@ -135,21 +141,31 @@ export const VERTICALS = [
 
 export const GALLERY_IMAGES = [
   {
-    src: "/images/founder-guest-felicitation.jpeg",
-    title: "Honor with Hon'ble Union Minister",
+    src: "/images/rajnath-singh-revanth-reddy-founder.jpg",
+    title: "With Hon'ble Raksha Mantri Shri Rajnath Singh Garu & Hon'ble CM Shri A. Revanth Reddy Garu",
     category: "Leadership & Dignitaries",
-    description: "SS Founder Chanti Nelatalli being felicitated alongside dignitaries including Union Minister G. Kishan Reddy at a major national youth summit."
+    featured: true,
+    description: "Founder Chanti Nelatalli being honored by Hon'ble Raksha Mantri (Defence Minister of India) Shri Rajnath Singh Garu in the gracious presence of Hon'ble Chief Minister of Telangana Shri A. Revanth Reddy Garu."
+  },
+  {
+    src: "/images/founder-guest-felicitation.jpeg",
+    title: "Felicitation with Hon'ble Union Minister G. Kishan Reddy Garu",
+    category: "Leadership & Dignitaries",
+    featured: true,
+    description: "SS Founder Chanti Nelatalli receiving honors alongside dignitaries including Union Minister Shri G. Kishan Reddy at a major national youth summit."
   },
   {
     src: "/images/microsoft-visit.jpeg",
     title: "Microsoft Campus Corporate Immersion",
     category: "Corporate Exposure",
+    featured: true,
     description: "Student delegation at Microsoft campus — providing Tier-2 and Tier-3 college students with firsthand exposure to global tech giants."
   },
   {
     src: "/images/youth-conclave-main.jpeg",
     title: "State Youth Leaders Conclave",
     category: "Conclaves & Summits",
+    featured: true,
     description: "The core organizing committee and student coordinators after successfully orchestrating a 2,000+ delegate youth convention."
   },
   {
