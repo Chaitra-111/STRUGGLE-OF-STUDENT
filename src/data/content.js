@@ -15,6 +15,12 @@ export const SITE_INFO = {
     email: "contact@struggleofstudent.org",
     location: "Hyderabad, Telangana, India"
   },
+  ministerLaunch: {
+    name: "Smt. Danasari Anasuya (Seethakka) Garu",
+    title: "Hon'ble Minister for Panchayat Raj & Rural Development, Women & Child Welfare, Govt. of Telangana",
+    src: "/images/minister-seethakka-launch.jpg",
+    ceremonyNote: "A Momentous Launch by Hon'ble Minister Seethakka Garu — Dedicating this platform to the bright future and career aspirations of rural & Tier-2/3 students"
+  },
   mainDignitaryMoment: {
     src: "/images/rajnath-singh-revanth-reddy-founder.jpg",
     title: "Honored by Raksha Mantri Shri Rajnath Singh Garu & Hon'ble CM Shri A. Revanth Reddy Garu",
@@ -141,6 +147,13 @@ export const VERTICALS = [
 
 export const GALLERY_IMAGES = [
   {
+    src: "/images/minister-seethakka-launch.jpg",
+    title: "Official Website Launch by Hon'ble Minister Smt. Danasari Anasuya (Seethakka) Garu",
+    category: "Leadership & Dignitaries",
+    featured: true,
+    description: "Ceremonial launch of the Struggle of Student (SS) platform by Hon'ble Minister for Panchayat Raj & Rural Development, Women & Child Welfare Smt. Danasari Anasuya (Seethakka) Garu, dedicated to supporting rural and Tier-2 & Tier-3 students."
+  },
+  {
     src: "/images/rajnath-singh-revanth-reddy-founder.jpg",
     title: "With Hon'ble Raksha Mantri Shri Rajnath Singh Garu & Hon'ble CM Shri A. Revanth Reddy Garu",
     category: "Leadership & Dignitaries",
@@ -172,54 +185,63 @@ export const GALLERY_IMAGES = [
     src: "/images/women-leaders-conclave.jpeg",
     title: "Empowering Women Student Leaders",
     category: "Leadership & Dignitaries",
+    featured: true,
     description: "Student coordinators leading logistics and VIP hospitality at the Nelatalli Youth Conclave with distinguished keynote guests."
   },
   {
     src: "/images/annual-youth-meet.jpeg",
     title: "Annual Community Assembly",
     category: "Conclaves & Summits",
+    featured: true,
     description: "Student ambassadors and volunteers representing 20+ affiliated colleges gathered on stage for the annual celebration."
   },
   {
     src: "/images/outdoor-leadership-camp.jpeg",
     title: "Outdoor Leadership & Team Building Camp",
     category: "Team & Community",
+    featured: true,
     description: "Over 50 student coordinators participating in experiential outdoor leadership training, building camaraderie and resilience."
   },
   {
     src: "/images/stage-celebration.jpeg",
     title: "Cultural & Talent Showcase",
     category: "Conclaves & Summits",
+    featured: true,
     description: "Community delegates taking center stage during the celebration of student talent, public speaking, and awards."
   },
   {
     src: "/images/community-lunch.jpeg",
     title: "The Spirit of Equality: Community Meal",
     category: "Team & Community",
+    featured: true,
     description: "Team members and leaders sharing a meal together on the floor — embodying humility, unity, and genuine student brotherhood."
   },
   {
     src: "/images/campus-ambassadors-cafe.jpeg",
     title: "Campus Ambassador Brainstorming",
     category: "Team & Community",
+    featured: true,
     description: "Regional college leads meeting for a collaborative strategy session on spreading free career guidance to rural districts."
   },
   {
     src: "/images/water-conservation-drive.jpeg",
     title: "Walk for Water Environmental Drive",
     category: "Social Impact",
+    featured: true,
     description: "Student community participating in environmental awareness drives, partnering with grassroots initiatives for sustainable futures."
   },
   {
     src: "/images/student-executives.jpeg",
     title: "Core Student Organizing Committee",
     category: "Team & Community",
+    featured: true,
     description: "The dynamic student leadership team dressed in professional blazers, managing high-stakes state youth initiatives."
   },
   {
     src: "/images/hackathon-welcome.jpeg",
     title: "Inter-College Tech & Innovation Meet",
     category: "Corporate Exposure",
+    featured: true,
     description: "Students from engineering and degree colleges assembling for our student-led tech hackathons and problem-solving summits."
   }
 ];
