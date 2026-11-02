@@ -15,8 +15,14 @@ export default function App() {
   // Show launch screen on every page load/refresh as requested
   const [hasLaunched, setHasLaunched] = useState(false);
 
-  // Sync state with URL hash
+  // Initialize strictly to Home page on first load / refresh
   useEffect(() => {
+    // Reset any existing hash to #home
+    setActivePage('home');
+    if (window.location.hash !== '#home') {
+      window.history.replaceState(null, '', window.location.pathname + '#home');
+    }
+
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
       if (['home', 'about', 'verticals', 'contact'].includes(hash)) {
@@ -24,7 +30,6 @@ export default function App() {
       }
     };
 
-    handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -35,19 +40,36 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handlePrepareHome = () => {
+    // Prepare Home Page directly behind the curtains before parting
+    setActivePage('home');
+    window.location.hash = 'home';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const handleCompleteLaunch = () => {
+    // Curtains have fully parted - reveal live interactive website
+    setHasLaunched(true);
+    setActivePage('home');
+    window.location.hash = 'home';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans">
+    <div className="min-h-screen w-full flex flex-col bg-white text-slate-800 font-sans overflow-x-hidden">
       
-      {/* Minister Seethakka Garu Launch Screen Overlay */}
+      {/* Minister Seethakka Garu Launch Screen & Curtains */}
       {!hasLaunched && (
-        <LaunchScreen onLaunch={() => setHasLaunched(true)} />
+        <LaunchScreen 
+          onPrepareHome={handlePrepareHome}
+          onCompleteLaunch={handleCompleteLaunch}
+        />
       )}
 
       {/* Top Sticky Navigation */}
       <Navbar 
         activePage={activePage} 
         setActivePage={changePage} 
-        onReopenLaunch={() => setHasLaunched(false)}
       />
 
       {/* Main Page Content */}
