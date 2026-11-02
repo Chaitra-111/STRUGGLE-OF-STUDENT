@@ -7,12 +7,12 @@ import {
   Award, 
   Users, 
   Building, 
-  Maximize2,
-  CheckCircle,
-  ExternalLink,
-  Phone,
-  Mail,
-  ArrowRight
+  Maximize2, 
+  CheckCircle, 
+  ExternalLink, 
+  Phone, 
+  Mail, 
+  ArrowRight 
 } from 'lucide-react';
 import { SITE_INFO, GALLERY_IMAGES } from '../data/content';
 
@@ -95,24 +95,48 @@ export default function AboutPage({ onOpenImage, setActivePage }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* Card 1: Rajnath Singh Garu & Revanth Reddy Garu */}
+          {/* Card 1: Rajnath Singh Garu & Revanth Reddy Garu (Full width & mobile-optimized) */}
           <div 
             onClick={() => onOpenImage(SITE_INFO.mainDignitaryMoment)}
             className="group rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col"
           >
-            <div className="relative aspect-16/10 bg-slate-950 overflow-hidden">
-              <img 
-                src={SITE_INFO.mainDignitaryMoment.src}
-                alt={SITE_INFO.mainDignitaryMoment.title}
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end justify-between p-5 text-white">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-md">
-                  <Sparkles className="w-3.5 h-3.5" /> High Honor
-                </span>
-                <span className="p-1.5 rounded-lg bg-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Maximize2 className="w-3.5 h-3.5" />
-                </span>
+            <div className="flex flex-col bg-slate-950">
+              <div className="relative aspect-[3/2] bg-slate-950 overflow-hidden flex items-center justify-center">
+                <img 
+                  src={SITE_INFO.mainDignitaryMoment.src}
+                  alt={SITE_INFO.mainDignitaryMoment.title}
+                  className="w-full h-full object-contain sm:object-cover sm:object-center transition-transform duration-500 group-hover:scale-102"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5 text-white pointer-events-none">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-[11px] sm:text-xs font-bold shadow-md">
+                    <Sparkles className="w-3.5 h-3.5" /> High Honor
+                  </span>
+                  <span className="p-1.5 rounded-lg bg-white/20 text-white">
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+
+              {/* Dignitary Names Strip for immediate mobile & desktop clarity */}
+              <div className="grid grid-cols-3 gap-1 bg-slate-900 border-t border-slate-800 p-2 text-center">
+                <div className="bg-slate-800/90 rounded-lg p-1.5 flex flex-col justify-center border border-slate-700/50">
+                  <span className="text-amber-400 font-extrabold text-[10px] sm:text-xs leading-tight">
+                    Shri Rajnath Singh
+                  </span>
+                  <span className="text-[9px] text-slate-300 font-medium">Hon&apos;ble Raksha Mantri</span>
+                </div>
+                <div className="bg-red-950/70 rounded-lg p-1.5 flex flex-col justify-center border border-red-500/30">
+                  <span className="text-white font-extrabold text-[10px] sm:text-xs leading-tight">
+                    Chanti Nelatalli
+                  </span>
+                  <span className="text-[9px] text-red-300 font-medium">Founder, SS</span>
+                </div>
+                <div className="bg-slate-800/90 rounded-lg p-1.5 flex flex-col justify-center border border-slate-700/50">
+                  <span className="text-emerald-400 font-extrabold text-[10px] sm:text-xs leading-tight">
+                    Shri A. Revanth Reddy
+                  </span>
+                  <span className="text-[9px] text-slate-300 font-medium">Hon&apos;ble CM Telangana</span>
+                </div>
               </div>
             </div>
 
@@ -141,17 +165,17 @@ export default function AboutPage({ onOpenImage, setActivePage }) {
             onClick={() => onOpenImage(GALLERY_IMAGES[1])}
             className="group rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col"
           >
-            <div className="relative aspect-16/10 bg-slate-950 overflow-hidden">
+            <div className="relative aspect-[3/2] bg-slate-950 overflow-hidden flex items-center justify-center">
               <img 
                 src={GALLERY_IMAGES[1].src}
                 alt={GALLERY_IMAGES[1].title}
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-contain sm:object-cover sm:object-center transition-transform duration-500 group-hover:scale-102"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end justify-between p-5 text-white">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 text-white text-xs font-bold shadow-md">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end justify-between p-4 sm:p-5 text-white pointer-events-none">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 text-white text-[11px] sm:text-xs font-bold shadow-md">
                   <Award className="w-3.5 h-3.5 text-red-400" /> Dignitary Felicitation
                 </span>
-                <span className="p-1.5 rounded-lg bg-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="p-1.5 rounded-lg bg-white/20 text-white">
                   <Maximize2 className="w-3.5 h-3.5" />
                 </span>
               </div>
@@ -343,22 +367,22 @@ export default function AboutPage({ onOpenImage, setActivePage }) {
           ))}
         </div>
 
-        {/* Gallery Grid */}
+        {/* Gallery Grid (Preserving 3:2 aspect ratio so full landscape photos never get cropped) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
           {filteredImages.map((img, idx) => (
             <div
               key={idx}
               onClick={() => onOpenImage(img)}
-              className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-4/3 flex flex-col"
+              className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[3/2] flex flex-col"
             >
               <img
                 src={img.src}
                 alt={img.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-95 group-hover:opacity-100"
+                className="w-full h-full object-contain sm:object-cover sm:object-center transition-transform duration-500 group-hover:scale-102 opacity-95 group-hover:opacity-100"
               />
               
               {/* Overlay with details */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-5 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4 sm:p-5 text-white">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-red-400">
                     {img.category}
@@ -367,7 +391,7 @@ export default function AboutPage({ onOpenImage, setActivePage }) {
                     <Maximize2 className="w-3.5 h-3.5" />
                   </div>
                 </div>
-                <h4 className="text-base font-bold text-white mt-1 leading-snug">{img.title}</h4>
+                <h4 className="text-sm sm:text-base font-bold text-white mt-1 leading-snug">{img.title}</h4>
                 <p className="text-xs text-slate-300 line-clamp-2 mt-1 leading-relaxed">{img.description}</p>
               </div>
             </div>

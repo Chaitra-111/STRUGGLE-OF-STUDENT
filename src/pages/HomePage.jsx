@@ -139,34 +139,65 @@ export default function HomePage({ setActivePage, onOpenImage }) {
         </div>
       </section>
 
-      {/* Prime National & State Recognition Feature */}
+      {/* Prime National & State Recognition Feature (Optimized for Mobile Visibility) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-center">
           
-          <div 
-            onClick={() => onOpenImage(SITE_INFO.mainDignitaryMoment)}
-            className="lg:col-span-7 relative group cursor-pointer overflow-hidden bg-slate-950 aspect-16/10 lg:aspect-auto lg:h-full min-h-[360px]"
-          >
-            <img 
-              src={SITE_INFO.mainDignitaryMoment.src}
-              alt="Hon'ble Raksha Mantri Shri Rajnath Singh Garu, Hon'ble CM Shri A. Revanth Reddy Garu, and Founder Chanti Nelatalli"
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex flex-col justify-between p-6">
-              <span className="self-start inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600/95 text-white text-xs font-bold shadow-md">
-                <Sparkles className="w-3.5 h-3.5" /> High Honor &amp; Recognition
-              </span>
+          {/* Image Container with precise 3:2 ratio preserving full width of all 3 figures on mobile */}
+          <div className="lg:col-span-7 flex flex-col bg-slate-950">
+            <div 
+              onClick={() => onOpenImage(SITE_INFO.mainDignitaryMoment)}
+              className="relative group cursor-pointer overflow-hidden w-full aspect-[3/2] flex items-center justify-center bg-slate-950"
+            >
+              <img 
+                src={SITE_INFO.mainDignitaryMoment.src}
+                alt="Hon'ble Raksha Mantri Shri Rajnath Singh Garu, Hon'ble CM Shri A. Revanth Reddy Garu, and Founder Chanti Nelatalli"
+                className="w-full h-full object-contain sm:object-cover sm:object-center transition-transform duration-500 group-hover:scale-102"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent flex flex-col justify-between p-4 sm:p-6 pointer-events-none">
+                <span className="self-start inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600/95 text-white text-[11px] sm:text-xs font-bold shadow-md">
+                  <Sparkles className="w-3.5 h-3.5" /> High Honor &amp; Recognition
+                </span>
 
-              <div className="flex items-center justify-between text-white text-xs">
-                <span className="font-semibold text-slate-200">Click to view full high-resolution</span>
-                <span className="p-1.5 rounded-lg bg-white/20 text-white">
-                  <Maximize2 className="w-3.5 h-3.5" />
+                <div className="flex items-center justify-between text-white text-xs">
+                  <span className="font-semibold text-slate-200 text-[11px] sm:text-xs">Tap image to zoom full-screen</span>
+                  <span className="p-1.5 rounded-lg bg-white/20 text-white">
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile & Desktop Dignitary Identification Bar */}
+            <div className="grid grid-cols-3 gap-1.5 bg-slate-900 border-t border-slate-800 p-2 sm:p-2.5 text-center">
+              <div className="bg-slate-800/90 rounded-xl p-2 flex flex-col justify-center border border-slate-700/50">
+                <span className="text-amber-400 font-extrabold text-[11px] sm:text-xs leading-tight">
+                  Shri Rajnath Singh Garu
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium mt-0.5">
+                  Hon&apos;ble Raksha Mantri (Defence)
+                </span>
+              </div>
+              <div className="bg-red-950/70 rounded-xl p-2 flex flex-col justify-center border border-red-500/40">
+                <span className="text-white font-extrabold text-[11px] sm:text-xs leading-tight">
+                  Chanti Nelatalli
+                </span>
+                <span className="text-[10px] text-red-300 font-medium mt-0.5">
+                  Founder, SS Community
+                </span>
+              </div>
+              <div className="bg-slate-800/90 rounded-xl p-2 flex flex-col justify-center border border-slate-700/50">
+                <span className="text-emerald-400 font-extrabold text-[11px] sm:text-xs leading-tight">
+                  Shri A. Revanth Reddy Garu
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium mt-0.5">
+                  Hon&apos;ble Chief Minister, Telangana
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-5 p-8 sm:p-10 space-y-5">
+          <div className="lg:col-span-5 p-6 sm:p-10 space-y-5">
             <div className="space-y-2">
               <span className="text-xs font-bold tracking-wider uppercase text-red-600 font-mono">
                 National &amp; State Recognition
@@ -185,7 +216,7 @@ export default function HomePage({ setActivePage, onOpenImage }) {
                 Validation of Grassroots Student Impact
               </span>
               <p className="text-xs text-slate-500 leading-relaxed">
-                A proud milestone reflecting Struggle of Student&apos;s commitment to provide 100% free career guidance to 10 Crore students by 2047.
+                A proud milestone reflecting Struggle of Student&apos;s commitment to provide 100% free career guidance to 10 Crore students by 2047 across Tier 2, Tier 3, and rural colleges.
               </p>
             </div>
 
@@ -386,12 +417,12 @@ export default function HomePage({ setActivePage, onOpenImage }) {
             <div 
               key={i}
               onClick={() => onOpenImage(img)}
-              className="group relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-4/3 flex flex-col"
+              className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer aspect-[3/2] flex flex-col"
             >
               <img 
                 src={img.src} 
                 alt={img.title} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-contain sm:object-cover sm:object-center transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity flex flex-col justify-end p-4 text-white">
                 <span className="text-[10px] font-bold tracking-wider uppercase text-red-400">{img.category}</span>
